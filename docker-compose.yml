@@ -1,0 +1,51 @@
+version: '3'
+services:
+  database:
+    build: .
+      context: Database
+      dockerfile: dockerfile
+    ports:
+    - "5000:5000"
+    volumes:
+    - .:/code
+    - logvolume01:/var/log
+    links:
+    - redis
+  redis:
+    image: redis
+volumes:
+  logvolume01: {}
+
+services:
+  backend:
+    build: .
+      context: Backend
+      dockerfile: dockerfile
+    ports:
+    - "5000:5000"
+    volumes:
+    - .:/code
+    - logvolume01:/var/log
+    links:
+    - redis
+  redis:
+    image: redis
+volumes:
+  logvolume01: {}
+
+  services:
+    proxy:
+      build: .
+        context: Proxy
+        dockerfile: dockerfile
+      ports:
+      - "5000:5000"
+      volumes:
+      - .:/code
+      - logvolume01:/var/log
+      links:
+      - redis
+    redis:
+      image: redis
+  volumes:
+    logvolume01: {}
