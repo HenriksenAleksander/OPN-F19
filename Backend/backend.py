@@ -1,9 +1,30 @@
-FROM flask import Flask
-import urllib.request, json
+FROM flask import Flask, request
 
-@app.route('/select')
-def get
+import mysql.connector
 
+def connection():
+    mysql.connector.connect(
+        hostname="database",
+        user="root",
+        psswd="",
+        database="person"
+    )
+    return mysql.cursor()
 
-@app.route('/insert')
-def post
+app = Flask(__name__)
+
+@app.route('/persons', method=["GET"])
+def get():
+    connection()
+    cursor.exectue("SELECT * FROM persons")
+    myResault = cursor.fetchall()
+
+@app.route('/person', method=["POST"])
+def post():
+    connection();
+    firstname = request.from.get("firstname")
+    lastname = request.from.get("lastname")
+    sql = "INSERT INTO persons ("Firstname", "Lastname") VALUES (%s,%s)"
+    val = (firstname, lastname)
+    cursor.execute(sql, val)
+    mysql.commit()
