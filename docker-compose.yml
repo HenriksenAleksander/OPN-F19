@@ -6,8 +6,8 @@ services:
       dockerfile: dockerfile
     ports:
     - "3306:3306"
-    network:
-      network2
+#    network:
+#      network2
 
 services:
   backend:
@@ -16,9 +16,9 @@ services:
       dockerfile: dockerfile
     ports:
     - "5000:5000"
-    network:
-      network1
-      network2
+#    network:
+#      network1
+#      network2
 
   services:
     proxy:
@@ -27,5 +27,5 @@ services:
         dockerfile: dockerfile
       ports:
       - "443:80"
-      network:
-        network1
+#      network:
+#        network1
