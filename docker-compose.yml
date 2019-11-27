@@ -1,7 +1,7 @@
 version: '3'
 services:
   database:
-    build: .
+    build:
       context: ./Database
       dockerfile: dockerfile
     ports:
@@ -11,7 +11,7 @@ services:
 
 services:
   backend:
-    build: .
+    build:
       context: ./Backend
       dockerfile: dockerfile
     ports:
@@ -22,7 +22,7 @@ services:
 
   services:
     proxy:
-      build: .
+      build:
         context: ./Proxy
         dockerfile: dockerfile
       ports:
