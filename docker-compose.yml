@@ -20,12 +20,12 @@ services:
 #      network1
 #      network2
 
-  services:
-    proxy:
-      build:
-        context: ./Proxy
-        dockerfile: dockerfile
-      ports:
-      - "443:80"
+services:
+  proxy:
+    build:
+      context: ./Proxy
+      dockerfile: dockerfile
+    ports:
+    - "443:80"
 #      network:
 #        network1
