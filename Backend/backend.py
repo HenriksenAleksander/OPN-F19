@@ -18,6 +18,7 @@ def get():
     connection()
     cursor.exectue("SELECT * FROM persons")
     myResault = cursor.fetchall()
+    return myResault
 
 @app.route('/person', method=["POST"])
 def post():
