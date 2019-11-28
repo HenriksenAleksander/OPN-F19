@@ -24,7 +24,7 @@ services:
       context: ./Proxy
       dockerfile: dockerfile
     ports:
-      - "80:80"
+      - "443:80"
     networks:
       - frontend
 
