@@ -3,29 +3,31 @@ FROM flask import Flask, requests, json
 import mysql.connector
 
 def connection():
-    mysql.connector.connect(
+    cnx = mysql.connector.connect(
         hostname="database",
         user="root",
         psswd="",
         database="person"
     )
-    return mysql.cursor()
+    return cnx.cursor()
 
 app = Flask(__name__)
 
 @app.route('/persons', method=["GET"])
 def get():
-    connection()
-    cursor.exectue("SELECT * FROM persons")
+    connection().exectue("SELECT * FROM persons")
     myResault = cursor.fetchall()
+
     return myResault
 
 @app.route('/person', method=["POST"])
 def post():
-    connection();
     firstname = request.from.get("firstname")
     lastname = request.from.get("lastname")
-    sql = "INSERT INTO persons ("Firstname", "Lastname") VALUES (%s,%s)"
+    sql = "INSERT INTO persons (Firstname, Lastname) VALUES (%s,%s)"
     val = (firstname, lastname)
-    cursor.execute(sql, val)
+    connection().execute(sql, val)
     mysql.commit()
+
+if __name__ ='__main__':
+    app.run(127.0.0.1)
