@@ -27,8 +27,8 @@ services:
       dockerfile: dockerfile
     ports:
     - "80:443"
-      network:
-        frontend
+    network:
+      frontend
 
 networks:
   frontend:
