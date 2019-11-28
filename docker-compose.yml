@@ -36,6 +36,6 @@ networks:
   backend:
     # Use a custom driver which takes special options
     driver: custom-driver-2
-    driver_opts:
+#    driver_opts:
 #      foo: "1"
 #      bar: "2"
