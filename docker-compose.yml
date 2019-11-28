@@ -5,8 +5,8 @@ services:
       context: ./Database
       dockerfile: dockerfile
     command: --default-authentication-plugin=mysql_native_password
-#    ports:
-#      - "5000:3306"
+    ports:
+      - "5000:3306"
     networks:
       - backend
 
@@ -14,8 +14,8 @@ services:
     build:
       context: ./Backend
       dockerfile: dockerfile
-#    ports:
-#      - "5001:5001"
+    ports:
+      - "5000:5001"
     networks:
       - frontend
       - backend
@@ -24,8 +24,8 @@ services:
     build:
       context: ./Proxy
       dockerfile: dockerfile
-#    ports:
-#      - "80:443"
+    ports:
+      - "5000:443"
     networks:
       - frontend
 
@@ -36,6 +36,3 @@ networks:
   backend:
     # Use a custom driver which takes special options
     driver: bridge
-#    driver_opts:
-#      foo: "1"
-#      bar: "2"
