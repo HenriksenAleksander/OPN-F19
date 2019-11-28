@@ -4,9 +4,9 @@ services:
     build:
       context: ./Database
       dockerfile: dockerfile
-    command: --default-authentication-plugin=mysql_native_password
+#    command: --default-authentication-plugin=mysql_native_password
     ports:
-      - "5000:3306"
+      - "3306:3306"
     networks:
       - backend
 
