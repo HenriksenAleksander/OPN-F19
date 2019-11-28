@@ -15,10 +15,13 @@ app = Flask(__name__)
 
 @app.route('/persons', method=["GET"])
 def get():
-    connection().exectue("SELECT * FROM persons")
-    myResault = cursor.fetchall()
+    myResault = connection().exectue("SELECT * FROM persons")
 
-    return myResault
+    items = []
+    for row in myResault:
+        items.append({'PersonID': row[0], 'Firstname': row[1], 'Lastname': row[2]})
+
+    return json.dumps({'Person': items})
 
 @app.route('/person', method=["POST"])
 def post():
