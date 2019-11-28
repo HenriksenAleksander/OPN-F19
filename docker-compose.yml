@@ -6,19 +6,19 @@ services:
       dockerfile: dockerfile
     ports:
     - "3306:3306"
-#    network:
-#      network2
+    network:
+      backend
 
 services:
-  backend:
+  app:
     build:
       context: ./Backend
       dockerfile: dockerfile
     ports:
     - "5000:5000"
-#    network:
-#      network1
-#      network2
+    network:
+      frontend
+      backend
 
 services:
   proxy:
@@ -26,6 +26,17 @@ services:
       context: ./Proxy
       dockerfile: dockerfile
     ports:
-    - "443:80"
-#      network:
-#        network1
+    - "80:443"
+      network:
+        frontend
+
+networks:
+  frontend:
+    # Use a custom driver
+    driver: custom-driver-1
+  backend:
+    # Use a custom driver which takes special options
+    driver: custom-driver-2
+    driver_opts:
+      foo: "1"
+      bar: "2"
