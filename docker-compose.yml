@@ -7,7 +7,7 @@ services:
     ports:
     - "3306:3306"
     network:
-      backend
+      - backend
 
 services:
   app:
@@ -17,8 +17,8 @@ services:
     ports:
     - "5000:5000"
     network:
-      frontend
-      backend
+      - frontend
+      - backend
 
 services:
   proxy:
@@ -28,7 +28,7 @@ services:
     ports:
     - "80:443"
     network:
-      frontend
+      - frontend
 
 networks:
   frontend:
