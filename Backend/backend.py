@@ -9,17 +9,23 @@ def connection():
         psswd="",
         database="person"
     )
-    return cnx.cursor()
+    return cnx
+
+def setCursor():
+    return connection().cursor()
 
 app = Flask(__name__)
 
 @app.route('/persons', method=["GET"])
 def get():
-    myResault = connection().exectue("SELECT * FROM persons")
+    setCursor().exectue("SELECT * FROM persons")
+    myResault = setCursor.fetchall()
 
     items = []
     for row in myResault:
         items.append({'PersonID': row[0], 'Firstname': row[1], 'Lastname': row[2]})
+
+        connection.close()
 
     return json.dumps({'Person': items})
 
@@ -29,8 +35,9 @@ def post():
     lastname = request.from.get("lastname")
     sql = "INSERT INTO persons (Firstname, Lastname) VALUES (%s,%s)"
     val = (firstname, lastname)
-    connection().execute(sql, val)
-    mysql.commit()
+    setCursor().execute(sql, val)
+    connection().commit()
+    connection().close()
 
-if __name__ ='__main__':
+if __name__ = '__main__':
     app.run(127.0.0.1)
