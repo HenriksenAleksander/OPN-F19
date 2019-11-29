@@ -1,4 +1,4 @@
-FROM flask import Flask, requests, json
+from flask import Flask, request, json
 
 import mysql.connector
 
@@ -28,10 +28,10 @@ def get():
     connection().close()
     return json.dumps({'Person': items})
 
-@app.route('/person', method=["POST"])
+@app.route('/person', method=['POST'])
 def post():
-    firstname = request.from.get("firstname")
-    lastname = request.from.get("lastname")
+    firstname = request.get("firstname")
+    lastname = request.get('lastname')
     sql = "INSERT INTO persons (Firstname, Lastname) VALUES (%s,%s)"
     val = (firstname, lastname)
     setCursor().execute(sql, val)
@@ -39,5 +39,5 @@ def post():
     connection().close()
     return "firstname" + "lastname"
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     app.run(host='0.0.0.0')
