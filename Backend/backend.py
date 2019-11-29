@@ -25,8 +25,7 @@ def get():
     for row in myResault:
         items.append({'PersonID': row[0], 'Firstname': row[1], 'Lastname': row[2]})
 
-        connection.close()
-
+    connection().close()
     return json.dumps({'Person': items})
 
 @app.route('/person', method=["POST"])
@@ -38,6 +37,7 @@ def post():
     setCursor().execute(sql, val)
     connection().commit()
     connection().close()
+    return "firstname" + "lastname"
 
 if __name__ = '__main__':
-    app.run(127.0.0.1)
+    app.run(host='0.0.0.0')

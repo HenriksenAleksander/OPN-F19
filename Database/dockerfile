@@ -1,3 +1,5 @@
 FROM ubuntu
 ENV MYSQL_ALLOW_EMPTY_PASSWORD -y
 COPY /init.sql /docker-entrypoint-initdb.d/.
+
+CMD /bin/bash
