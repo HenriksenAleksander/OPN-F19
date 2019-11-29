@@ -4,7 +4,7 @@ services:
     build:
       context: ./Database
       dockerfile: dockerfile
-    port:
+    ports:
       - "3306:3306"
     networks:
       - backend
@@ -13,7 +13,7 @@ services:
     build:
       context: ./Backend
       dockerfile: dockerfile
-    port:
+    ports:
       - "5000:5000"
     networks:
       - frontend
