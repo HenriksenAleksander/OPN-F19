@@ -23,10 +23,10 @@ def get():
 
     items = []
     for row in myResault:
-        items.append({'PersonID': row[0], 'Firstname': row[1], 'Lastname': row[2]})
+        items.append({"PersonID": row[0], "Firstname": row[1], "Lastname": row[2]})
 
     connection().close()
-    return json.dumps({'Person': items})
+    return json.dumps({"Person": items})
 
 @app.route('/person', method=['POST'])
 def post():
