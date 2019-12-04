@@ -5,8 +5,6 @@ RUN rm /etc/nginx/conf.d/default.conf
 COPY html /usr/share/nginx/html
 COPY default.conf /etc/nginx/config.d
 
-RUN mkdir /etc/ssl/nginx/
-
-COPY SSL /etc/ssl/nginx
+COPY SSL /etc/ssl
 
 CMD /bin/bash
