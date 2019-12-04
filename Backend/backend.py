@@ -30,7 +30,7 @@ def get():
 
 @app.route('/person', method=['POST'])
 def post():
-    firstname = request.get("firstname")
+    firstname = request.get('firstname')
     lastname = request.get('lastname')
     sql = "INSERT INTO persons (Firstname, Lastname) VALUES (%s,%s)"
     val = (firstname, lastname)
