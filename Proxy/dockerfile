@@ -1,8 +1,12 @@
-FROM nginx:alpine
+FROM nginx
+
+RUM rm /etc/nginx/conf.d/default.conf
 
 COPY html /usr/share/nginx/html
 COPY default.conf /etc/nginx/config.d
 
-COPY SSL /etc/ssl
+RUN mkdir /etc/ssl/nginx/
+
+COPY SSL /etc/ssl/nginx
 
 CMD /bin/bash
