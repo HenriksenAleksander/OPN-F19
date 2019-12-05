@@ -4,5 +4,3 @@ RUN pip3 install Flask
 RUN pip3 install mysql-connector-python
 
 COPY ./backend.py /home/
-
-CMD python3 home/backend.py
