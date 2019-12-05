@@ -31,8 +31,8 @@ def get():
 
 @app.route('/person', method=['POST'])
 def post():
-    firstname = request.get('firstname')
-    lastname = request.get('lastname')
+    firstname = request.from('firstname')
+    lastname = request.from('lastname')
     sql = "INSERT INTO persons (Firstname, Lastname) VALUES (%s,%s)"
     val = (firstname, lastname)
     setCursor().execute(sql, val)
