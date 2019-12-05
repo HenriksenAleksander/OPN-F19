@@ -5,7 +5,7 @@ services:
       context: ./Database
       dockerfile: dockerfile
     ports:
-      - "3306:3306"
+      - 3306:3306
     networks:
       - backend
 
@@ -14,22 +14,25 @@ services:
       context: ./Backend
       dockerfile: dockerfile
     ports:
-      - "5000:5000"
+      - 5000:5000
     networks:
       - frontend
       - backend
+    linked:
+      - database
 
   proxy:
     build:
       context: ./Proxy
       dockerfile: dockerfile
     ports:
-      - "443:443"
+      - 80:80
+      - 443:443
     networks:
       - frontend
+    linked:
+      - app
 
 networks:
   frontend:
-    driver: bridge
   backend:
-    driver: bridge

@@ -5,6 +5,7 @@ import mysql.connector
 def connection():
     cnx = mysql.connector.connect(
         hostname="database",
+        port="3306",
         user="root",
         psswd="",
         database="person"
@@ -37,7 +38,7 @@ def post():
     setCursor().execute(sql, val)
     connection().commit()
     connection().close()
-    return "firstname" + "lastname"
+    return str(firstname + lastname)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
