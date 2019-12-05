@@ -7,6 +7,6 @@ RUN pip3 install mysql-connector-python
 
 ADD ./backend.py /home
 
-EXPOS 5000
+EXPOSE 5000
 
 CMD ["python3", "backend.py"]
