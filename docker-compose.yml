@@ -14,7 +14,7 @@ services:
     ports:
       - 5000:5000
     links:
-      - database
+      - db
     networks:
       - frontend
       - backend
