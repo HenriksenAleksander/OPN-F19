@@ -14,8 +14,8 @@ def connection():
     )
     return cnx
 
-@app.route('/persons', method=["GET"])
-def get():
+@app.route('/persons', method=['GET'])
+def Get():
     db = connection()
     cursor = db.cursor()
     cursor.exectue("SELECT * FROM persons")
@@ -29,7 +29,7 @@ def get():
     return json.dumps(items)
 
 @app.route('/person', method=['POST'])
-def post():
+def Post():
     db = connection()
     cursor = db.cursor()
     reguests = request.from
