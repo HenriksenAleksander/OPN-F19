@@ -1,38 +1,32 @@
-version: '3'
+version : '3'
 services:
   db:
-    build:
-      context: ./Database
-      dockerfile: dockerfile
+    build: ./database
     networks:
       - backend
-
   app:
-    build:
-      context: ./Backend
-      dockerfile: dockerfile
+    build: ./backend
     ports:
       - 5000:5000
     links:
       - db
     networks:
-      - frontend
       - backend
-
-
-  proxy:
-    build:
-      context: ./Proxy
-      dockerfile: dockerfile
+      - frontend
+  web:
+    build: ./proxy
     ports:
       - 443:443
-    volumes:
-      - ./proxy/ssl:/etc/nginx/certs
+    volumes: 
+      - ./proxy/cat:/etc/nginx/certs
     links:
       - app
     networks:
       - frontend
 
+
 networks:
-  frontend:
+  frontend:    
   backend:
+
+       

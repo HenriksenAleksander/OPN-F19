@@ -1,8 +1,3 @@
-CREATE DATABASE person;
-USE person;
-
-CREATE TABLE persons (
-  PersonID INT(6) AUTO_INCREMENT PRIMARY KEY,
-  firstname TEXT,
-  lastname TEXT
-);
+CREATE DATABASE personDB;
+USE personDB;
+CREATE TABLE persons(ProfileID INT(6) AUTO_INCREMENT PRIMARY KEY, Firstname TEXT,  Lastname TEXT);
