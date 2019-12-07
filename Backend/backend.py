@@ -33,9 +33,8 @@ def get():
 def post():
     firstname = request.from('firstname')
     lastname = request.from('lastname')
-    sql = "INSERT INTO persons (Firstname, Lastname) VALUES (%s,%s)"
-    val = (firstname, lastname)
-    setCursor().execute(sql, val)
+    sql = "INSERT INTO persons (Firstname, Lastname) VALUES (%s,%s)", (firstname, lastname)
+    setCursor().execute(sql)
     connection().commit()
     connection().close()
     return str(firstname + lastname)

@@ -4,8 +4,6 @@ services:
     build:
       context: ./Database
       dockerfile: dockerfile
-    ports:
-      - 3306:3306
     networks:
       - backend
 
