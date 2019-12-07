@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 def connection():
     cnx = mysql.connector.connect(
-        hostname="database",
+        hostname="db",
         port="3306",
         user="root",
         psswd="",

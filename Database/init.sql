@@ -1,5 +1,5 @@
-create database person;
-use person;
+CREATE DATABASE person;
+USE person;
 
 CREATE TABLE persons (
   PersonID INT(6) AUTO_INCREMENT PRIMARY KEY,
