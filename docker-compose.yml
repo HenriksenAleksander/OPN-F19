@@ -13,25 +13,25 @@ services:
       dockerfile: dockerfile
     ports:
       - 5000:5000
+    links:
+      - database
     networks:
       - frontend
       - backend
-    links:
-      - database
+
 
   proxy:
     build:
       context: ./Proxy
       dockerfile: dockerfile
     ports:
-      - 80:80
       - 443:443
     volumes:
       - ./proxy/ssl:/etc/nginx/certs
-    networks:
-      - frontend
     links:
       - app
+    networks:
+      - frontend
 
 networks:
   frontend:
