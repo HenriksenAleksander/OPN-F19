@@ -24,7 +24,7 @@ def get():
 
     items = []
     for row in myResault:
-        items.append({"Firstname": row[1], "PersonID": row[0], "Lastname": row[2]})
+        items.append({"Firstname": row[0], "PersonID": row[1], "Lastname": row[2]})
 
     connection().close()
     return json.dumps(items)
@@ -33,7 +33,7 @@ def get():
 def post():
     firstname = request.from('firstname')
     lastname = request.from('lastname')
-    sql = "INSERT INTO persons (FirstName, LastName) VALUES (%s,%s)", (firstname, lastname)
+    sql = "INSERT INTO persons (firstname, lastname) VALUES (%s,%s)", (firstname, lastname)
     setCursor().execute(sql)
     connection().commit()
     connection().close()

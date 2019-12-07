@@ -2,7 +2,7 @@ create database person;
 use person;
 
 CREATE TABLE persons (
-  PersonID int AUTO_INCREMENT PRIMARY KEY,
-  FirstName VARCHAR(255) NOT NULL,
-  LastName VARCHAR(255) NOT NULL
+  firstname CHAR(255) NOT NULL,
+  PersonID INT AUTO_INCREMENT PRIMARY KEY,
+  lastname CHAR(255) NOT NULL
 );
