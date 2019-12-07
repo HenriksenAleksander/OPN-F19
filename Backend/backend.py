@@ -24,7 +24,7 @@ def get():
 
     items = []
     for row in myResault:
-        items.append({"PersonID": row[0], "Firstname": row[1], "Lastname": row[2]})
+        items.append({"Firstname": row[1], "PersonID": row[0], "Lastname": row[2]})
 
     connection().close()
     return json.dumps(items)
