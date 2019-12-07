@@ -1,3 +1,0 @@
-CREATE DATABASE personDB;
-USE personDB;
-CREATE TABLE persons(ProfileID INT(6) AUTO_INCREMENT PRIMARY KEY, Firstname TEXT,  Lastname TEXT);
