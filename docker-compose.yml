@@ -26,6 +26,8 @@ services:
     ports:
       - 80:80
       - 443:443
+    volumes:
+      - ./proxy/ssl:/etc/nginx/certs
     networks:
       - frontend
     links:
